@@ -21,7 +21,8 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
+  networking.wireless.iwd.enable = true;
 
   services = {
     xserver.enable = true;
@@ -53,27 +54,24 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Faiq Ghozy Erlangga";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" "ydotool" ];
   };
   programs = {
+    ydotool = {
+      enable = true;
+    };
     zsh = {
         enable = true;
-        autosuggestions.enable = true;
-        zsh-autoenv.enable = true;
-        syntaxHighlighting.enable = true;
-        ohMyZsh = {
-          enable = true;
-          theme = "robbyrussell";
-          plugins = [
-            "git"
-            "npm"
-            "history"
-            "node"
-            "rust"
-            "deno"
-          ];
-        };
     };
+  };
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
+  services.mongodb = {
+    enable = true;
+    package = pkgs.mongodb-ce;
   };
 
   # Allow unfree packages
@@ -83,7 +81,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   # Desktop config
-  pavucontrol
+  pavucontrol impala
 
   # Hyprland config
   hyprpolkitagent hyprpaper
@@ -93,12 +91,16 @@
   nodejs_24 typescript
   rustup
 
+  # Database
+  mongodb-ce mongosh
+
   # Application
   kitty git vscode kdePackages.dolphin neovim
   firefox vesktop spotify vlc grim
   fastfetch btop superfile slurp kdePackages.dolphin
   cava tmux mangohud protonup heroic
-  obs-studio kdePackages.gwenview krita mindustry
+  obs-studio kdePackages.gwenview krita cemu
+  aria2 unrar onlyoffice-bin unzip android-file-transfer
   ];
 
   ################
@@ -111,35 +113,7 @@
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/user/.steam/root/compatibilitytools.d";
   };
 
-
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-
 
   ##########################
   # Nvidia driver settings #
@@ -161,5 +135,4 @@
   ];
 
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
