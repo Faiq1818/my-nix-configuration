@@ -5,6 +5,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./modules/networking.nix
+    ./modules/bluetooth.nix
     ./modules/packages.nix
     ./modules/nvidia-driver.nix
     ./modules/steam-config.nix
@@ -18,17 +20,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "nixos";
-
-  networking.networkmanager.enable = true;
-  #networking.wireless.iwd.enable = true;
-  
-  #Dns
-  networking.networkmanager.dns = "none";
-  networking.useDHCP = false;
-  networking.dhcpcd.enable = false;
-  networking.nameservers = ["8.8.4.4"];
 
   services = {
     xserver.enable = true;
@@ -63,10 +54,6 @@
       enable = true;
     };
   };
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
 
   #services.mongodb = {
   #  enable = true;
