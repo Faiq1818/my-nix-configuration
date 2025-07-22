@@ -8,6 +8,7 @@
     ./modules/packages.nix
     ./modules/nvidia-driver.nix
     ./modules/steam-config.nix
+    ./modules/docker-config.nix
   ];
 
   # Linux Kernel version
@@ -72,16 +73,7 @@
   #  package = pkgs.mongodb-ce;
   #};
 
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "btrfs";
-    # rootless mode
-    #setSocketVariable = true;
-  };
-
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
 
   system.stateVersion = "25.05";
 }
