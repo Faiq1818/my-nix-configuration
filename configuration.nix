@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -11,10 +8,11 @@
     ./modules/nvidia-driver.nix
     ./modules/steam-config.nix
     ./modules/docker-config.nix
+    ./modules/mongodb-config.nix
   ];
 
   # Linux Kernel version
-  boot.kernelPackages = pkgs.linuxPackages_6_14;
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
   boot.kernelParams = ["nvidia-modeset.hdmi_deepcolor=0"];
 
   # Bootloader.
@@ -44,7 +42,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Faiq Ghozy Erlangga";
-    extraGroups = ["wheel" "networkmanager" "ydotool" "docker"];
+    extraGroups = ["wheel" "networkmanager" "ydotool"];
   };
   programs = {
     ydotool = {
@@ -54,11 +52,6 @@
       enable = true;
     };
   };
-
-  #services.mongodb = {
-  #  enable = true;
-  #  package = pkgs.mongodb-ce;
-  #};
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 

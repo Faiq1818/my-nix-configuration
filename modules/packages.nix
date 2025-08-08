@@ -17,10 +17,6 @@
     rofi
     wl-clipboard
 
-    # Language
-    nodejs_24
-    typescript-language-server
-
     # Database
     mongodb-ce
     mongosh
@@ -49,11 +45,12 @@
     obs-studio
     kdePackages.gwenview
     krita
-    cemu
     aria2
     unrar
     onlyoffice-bin
     unzip
     android-file-transfer
+    yazi
+    foot
   ];
 }
