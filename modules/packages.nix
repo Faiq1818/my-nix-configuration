@@ -52,5 +52,10 @@
     android-file-transfer
     yazi
     foot
+    posting
+    insomnia
+    brave
+    nvtopPackages.nvidia
+    osu-lazer-bin
   ];
 }

@@ -25,6 +25,8 @@
   };
 
   programs.hyprland.enable = true;
+  # hint electron apps to use wayland:
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   time.timeZone = "Asia/Jakarta";
   i18n.defaultLocale = "en_US.UTF-8";
