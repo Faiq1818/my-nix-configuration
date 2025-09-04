@@ -12,7 +12,7 @@
   ];
 
   # Linux Kernel version
-  boot.kernelPackages = pkgs.linuxPackages_6_15;
+  boot.kernelPackages = pkgs.linuxPackages_6_16;
   boot.kernelParams = ["nvidia-modeset.hdmi_deepcolor=0"];
 
   # Bootloader.

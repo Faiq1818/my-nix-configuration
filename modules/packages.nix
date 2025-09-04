@@ -57,5 +57,6 @@
     brave
     nvtopPackages.nvidia
     osu-lazer-bin
+    zoom-us
   ];
 }
