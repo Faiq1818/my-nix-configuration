@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -16,6 +16,7 @@
     waybar
     rofi
     wl-clipboard
+    mako
 
     # Database
     mongodb-ce
@@ -58,5 +59,9 @@
     nvtopPackages.nvidia
     osu-lazer-bin
     zoom-us
+    android-studio
+    inputs.zen-browser.packages.${pkgs.system}.default
   ];
+  # android studio licence eula accept
+  nixpkgs.config.android_sdk.accept_license = true;
 }

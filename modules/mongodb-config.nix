@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   services.mongodb = {
-    enable = true;
+    enable = false;
     package = pkgs.mongodb-ce;
   };
 }
