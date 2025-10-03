@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -61,7 +65,12 @@
     zoom-us
     android-studio
     inputs.zen-browser.packages.${pkgs.system}.default
+    tree
+    lazygit
+
+    ciscoPacketTracer8
   ];
+
   # android studio licence eula accept
   nixpkgs.config.android_sdk.accept_license = true;
 }

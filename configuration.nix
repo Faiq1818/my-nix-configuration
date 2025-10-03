@@ -20,7 +20,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   services = {
-    xserver.enable = true;
+    xserver.enable = false;
+    displayManager.sddm.wayland.enable = true;
     displayManager.sddm.enable = true;
   };
 
