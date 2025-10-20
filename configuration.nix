@@ -45,7 +45,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Faiq Ghozy Erlangga";
-    extraGroups = ["wheel" "networkmanager" "ydotool"];
+    extraGroups = ["wheel" "networkmanager" "ydotool" "docker"];
   };
   programs = {
     ydotool = {

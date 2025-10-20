@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   # Allow unfree packages
@@ -31,7 +32,6 @@
     git
     vscode
     kdePackages.dolphin
-    neovim
     firefox
     vesktop
     spotify
@@ -47,7 +47,6 @@
     mangohud
     protonup
     heroic
-    obs-studio
     kdePackages.gwenview
     krita
     aria2
@@ -65,11 +64,15 @@
     zoom-us
     android-studio
     inputs.zen-browser.packages.${pkgs.system}.default
+    inputs.nixvim.packages.${pkgs.system}.default
     tree
     lazygit
-
+    qbittorrent
+    spotify-player
     ciscoPacketTracer8
+    obs-studio
   ];
+  security.polkit.enable = true;
 
   # android studio licence eula accept
   nixpkgs.config.android_sdk.accept_license = true;

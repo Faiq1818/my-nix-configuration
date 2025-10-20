@@ -1,8 +1,11 @@
 {...}: {
   virtualisation.docker = {
-    enable = false;
+    enable = true;
     storageDriver = "btrfs";
     # rootless mode
-    #setSocketVariable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 }
