@@ -23,12 +23,7 @@
     wl-clipboard
     mako
 
-    # Database
-    mongodb-ce
-    mongosh
-
     # Application
-    kitty
     git
     vscode
     kdePackages.dolphin
