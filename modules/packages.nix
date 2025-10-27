@@ -66,6 +66,7 @@
     spotify-player
     ciscoPacketTracer8
     obs-studio
+    kdePackages.kdenlive
   ];
   security.polkit.enable = true;
 
