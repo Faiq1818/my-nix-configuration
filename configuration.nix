@@ -3,6 +3,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/networking.nix
+    ./modules/services.nix
+    ./modules/window-manager.nix
     ./modules/bluetooth.nix
     ./modules/packages.nix
     ./modules/nvidia-driver.nix
@@ -19,13 +21,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  services = {
-    xserver.enable = false;
-    displayManager.sddm.wayland.enable = true;
-    displayManager.sddm.enable = true;
-  };
-
-  programs.hyprland.enable = true;
   # hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -35,7 +30,6 @@
     layout = "us";
     variant = "";
   };
-  services.udisks2.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts._0xproto
@@ -47,6 +41,7 @@
     description = "Faiq Ghozy Erlangga";
     extraGroups = ["wheel" "networkmanager" "ydotool" "docker"];
   };
+
   programs = {
     ydotool = {
       enable = true;
