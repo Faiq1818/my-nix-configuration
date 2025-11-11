@@ -40,13 +40,13 @@
     cava
     tmux
     mangohud
-    protonup
+    protonup-ng
     heroic
     kdePackages.gwenview
     krita
     aria2
     unrar
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     unzip
     android-file-transfer
     yazi
@@ -67,9 +67,16 @@
     ciscoPacketTracer8
     obs-studio
     kdePackages.kdenlive
+    python313Packages.pipx
+    android-tools
   ];
   security.polkit.enable = true;
+  # services.unifi = {
+  # enable = true;
+  # mongodbPackage = pkgs.mongodb-ce;
+  # };
 
+  programs.kdeconnect.enable = true;
   # android studio licence eula accept
   nixpkgs.config.android_sdk.accept_license = true;
 }
