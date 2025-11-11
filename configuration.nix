@@ -42,15 +42,6 @@
     extraGroups = ["wheel" "networkmanager" "ydotool" "docker"];
   };
 
-  programs = {
-    ydotool = {
-      enable = true;
-    };
-    zsh = {
-      enable = true;
-    };
-  };
-
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   system.stateVersion = "25.05";

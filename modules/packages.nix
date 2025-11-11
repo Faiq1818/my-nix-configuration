@@ -1,18 +1,11 @@
 {
   pkgs,
   inputs,
-  config,
   ...
 }: {
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Desktop config
     pavucontrol
-    #impala
     networkmanagerapplet
 
     # Hyprland config
@@ -22,6 +15,10 @@
     rofi
     wl-clipboard
     mako
+    slurp
+    grim
+    kdePackages.dolphin
+    kdePackages.gwenview
 
     # Application
     git
@@ -31,18 +28,14 @@
     vesktop
     spotify
     vlc
-    grim
     fastfetch
     btop
     superfile
-    slurp
-    kdePackages.dolphin
     cava
     tmux
     mangohud
     protonup-ng
     heroic
-    kdePackages.gwenview
     krita
     aria2
     unrar
@@ -58,8 +51,6 @@
     osu-lazer-bin
     zoom-us
     android-studio
-    inputs.zen-browser.packages.${pkgs.system}.default
-    inputs.nixvim.packages.${pkgs.system}.default
     tree
     lazygit
     qbittorrent
@@ -69,14 +60,28 @@
     kdePackages.kdenlive
     python313Packages.pipx
     android-tools
+
+    # Inputs from flake
+    inputs.zen-browser.packages.${pkgs.system}.default
+    inputs.nixvim.packages.${pkgs.system}.default
   ];
-  security.polkit.enable = true;
+
   # services.unifi = {
   # enable = true;
   # mongodbPackage = pkgs.mongodb-ce;
   # };
 
-  programs.kdeconnect.enable = true;
+  programs = {
+    ydotool.enable = true;
+    zsh.enable = true;
+    kdeconnect.enable = true;
+  };
+
+  security.polkit.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # android studio licence eula accept
   nixpkgs.config.android_sdk.accept_license = true;
 }
