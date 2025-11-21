@@ -7,6 +7,8 @@
     # Desktop config
     pavucontrol
     networkmanagerapplet
+    rose-pine-cursor
+    xwayland-satellite
 
     # Hyprland config
     hyprpolkitagent
@@ -60,6 +62,8 @@
     kdePackages.kdenlive
     python313Packages.pipx
     android-tools
+    nethogs
+    ollama-cuda
 
     # Inputs from flake
     inputs.zen-browser.packages.${pkgs.system}.default

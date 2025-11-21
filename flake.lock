@@ -180,11 +180,11 @@
       },
       "locked": {
         "dir": "nixvim",
-        "lastModified": 1761760915,
-        "narHash": "sha256-vgG1tPb/2UZXZrWPAmJStqNsCnODAeSf3ph2kafsQFA=",
+        "lastModified": 1763734258,
+        "narHash": "sha256-ynk6IFG4UsQDnTaqnOdswa/7ZkTK5/obK3R0H9j0QMY=",
         "owner": "Faiq1818",
         "repo": "my-nix-flakes",
-        "rev": "304488d364bd1a65de0de84e313c5cf7c56e1465",
+        "rev": "aaa9f86238c25615573e286d48ac1377d4319f6e",
         "type": "github"
       },
       "original": {
