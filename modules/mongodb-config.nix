@@ -3,4 +3,7 @@
     enable = false;
     package = pkgs.mongodb-ce;
   };
+  services.postgresql = {
+    enable = true;
+  };
 }
