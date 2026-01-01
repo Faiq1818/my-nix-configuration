@@ -54,38 +54,27 @@
     zoom-us
     android-studio
     tree
-    lazygit
-    qbittorrent
     spotify-player
-    ciscoPacketTracer8
+    #ciscoPacketTracer8
     obs-studio
     kdePackages.kdenlive
     python313Packages.pipx
     android-tools
     nethogs
-    ollama-cuda
-    pgadmin4-desktopmode
-    winbox
     mangohud
+    podman-compose
+    podman-desktop
+    qbittorrent
+    gh
 
     # Inputs from flake
     inputs.zen-browser.packages.${pkgs.system}.default
     inputs.nixvim.packages.${pkgs.system}.default
   ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "ciscoPacketTracer8-8.2.2"
-  ];
-
-  programs.winbox = { 
-    openFirewall = true;
-    enable = true;
-  };
-
-  # services.unifi = {
-  # enable = true;
-  # mongodbPackage = pkgs.mongodb-ce;
-  # };
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "ciscoPacketTracer8-8.2.2"
+  # ];
 
   programs = {
     ydotool.enable = true;
