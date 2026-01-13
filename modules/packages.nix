@@ -9,6 +9,7 @@
     networkmanagerapplet
     rose-pine-cursor
     xwayland-satellite
+    catppuccin-sddm
 
     # Hyprland config
     hyprpolkitagent
@@ -66,6 +67,8 @@
     podman-desktop
     qbittorrent
     gh
+    dbeaver-bin
+    rquickshare
 
     # Inputs from flake
     inputs.zen-browser.packages.${pkgs.system}.default

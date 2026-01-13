@@ -30,20 +30,24 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   time.timeZone = "Asia/Jakarta";
-  i18n.defaultLocale = "en_US.UTF-8";
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
 
+  i18n.defaultLocale = "en_US.UTF-8";
+
   i18n.inputMethod = {
     type = "fcitx5";
     enable = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-gtk             # alternatively, kdePackages.fcitx5-qt
-      qt6Packages.fcitx5-chinese-addons  # table input method support
-      fcitx5-nord            # a color theme
-    ];
+    fcitx5 = {
+      addons = with pkgs; [
+        fcitx5-gtk             # alternatively, kdePackages.fcitx5-qt
+        qt6Packages.fcitx5-chinese-addons  # table input method support
+        fcitx5-nord            # a color theme
+      ];
+      waylandFrontend = true;
+    };
   };
 
   fonts.packages = with pkgs; [
