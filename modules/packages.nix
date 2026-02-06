@@ -17,7 +17,6 @@
     waybar
     rofi
     wl-clipboard
-    mako
     slurp
     grim
     kdePackages.dolphin
@@ -69,6 +68,9 @@
     gh
     dbeaver-bin
     rquickshare
+    obsidian
+    swaynotificationcenter
+    chromium
 
     # Inputs from flake
     inputs.zen-browser.packages.${pkgs.system}.default
@@ -84,6 +86,11 @@
     zsh.enable = true;
     kdeconnect.enable = true;
   };
+
+  hardware.opentabletdriver.enable = true;
+  hardware.opentabletdriver.daemon.enable = true;
+  hardware.uinput.enable = true;
+  boot.kernelModules = [ "uinput" ];
 
   security.polkit.enable = true;
 
