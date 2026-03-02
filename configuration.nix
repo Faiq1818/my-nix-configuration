@@ -8,6 +8,7 @@
     ./modules/input.nix
     ./modules/window-manager.nix
     ./modules/bluetooth.nix
+    ./modules/drivers.nix
     ./modules/packages.nix
     ./modules/nvidia-driver.nix
     ./modules/steam-config.nix

@@ -1,98 +1,93 @@
 {
   pkgs,
+  pkgs-unstable,
   inputs,
   ...
 }:
 {
-  environment.systemPackages = with pkgs; [
-    # Desktop config
-    pavucontrol
-    networkmanagerapplet
-    rose-pine-cursor
-    xwayland-satellite
-    catppuccin-sddm
-
-    # Hyprland config
-    hyprpolkitagent
-    hyprpaper
-    waybar
-    rofi
-    wl-clipboard
-    slurp
-    grim
-    kdePackages.dolphin
-    kdePackages.gwenview
-
-    # Application
-    git
-    vscode
-    kdePackages.dolphin
-    firefox
-    vesktop
-    spotify
-    vlc
-    fastfetch
-    btop
-    superfile
-    cava
-    tmux
-    mangohud
-    protonup-ng
-    heroic
-    krita
-    aria2
-    unrar
-    onlyoffice-desktopeditors
-    unzip
-    android-file-transfer
-    yazi
-    foot
-    posting
-    insomnia
-    brave
-    nvtopPackages.nvidia
-    osu-lazer-bin
-    zoom-us
-    android-studio
-    tree
-    spotify-player
-    #ciscoPacketTracer8
-    obs-studio
-    kdePackages.kdenlive
-    python313Packages.pipx
-    android-tools
-    nethogs
-    mangohud
-    podman-compose
-    podman-desktop
-    qbittorrent
-    gh
-    dbeaver-bin
-    obsidian
-    swaynotificationcenter
-    chromium
-    opencode
-    thunderbird
-
-    # Inputs from flake
-    inputs.zen-browser.packages.${pkgs.system}.default
-    inputs.nixvim.packages.${pkgs.system}.default
-  ];
-
-  # nixpkgs.config.permittedInsecurePackages = [
-  #   "ciscoPacketTracer8-8.2.2"
-  # ];
-
   programs = {
     ydotool.enable = true;
     zsh.enable = true;
     kdeconnect.enable = true;
   };
 
-  hardware.opentabletdriver.enable = true;
-  hardware.opentabletdriver.daemon.enable = true;
-  hardware.uinput.enable = true;
-  boot.kernelModules = [ "uinput" ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      # Desktop config
+      pavucontrol
+      networkmanagerapplet
+      rose-pine-cursor
+      xwayland-satellite
+      catppuccin-sddm
+
+      # Hyprland config
+      hyprpolkitagent
+      hyprpaper
+      waybar
+      rofi
+      wl-clipboard
+      slurp
+      grim
+      kdePackages.dolphin
+      kdePackages.gwenview
+
+      # Application
+      vesktop
+      spotify
+      vlc
+      fastfetch
+      btop
+      superfile
+      cava
+      tmux
+      mangohud
+      protonup-ng
+      heroic
+      krita
+      aria2
+      unrar
+      onlyoffice-desktopeditors
+      unzip
+      android-file-transfer
+      yazi
+      foot
+      posting
+      insomnia
+      brave
+      kdePackages.kdenlive
+      python313Packages.pipx
+      android-tools
+      nethogs
+      mangohud
+      podman-compose
+      podman-desktop
+      qbittorrent
+      gh
+      dbeaver-bin
+      obsidian
+      swaynotificationcenter
+    ]
+    ++ (with pkgs-unstable; [
+      git
+      vscode
+      kdePackages.dolphin
+      firefox
+      nvtopPackages.nvidia
+      osu-lazer-bin
+      zoom-us
+      android-studio
+      tree
+      spotify-player
+      obs-studio
+      chromium
+      opencode
+      thunderbird
+
+      # Inputs from flake
+      inputs.zen-browser.packages.${pkgs.system}.default
+      inputs.nixvim.packages.${pkgs.system}.default
+    ]);
 
   security.polkit.enable = true;
 
