@@ -5,13 +5,14 @@
     ./hardware-configuration.nix
     ./modules/networking.nix
     ./modules/services.nix
+    ./modules/input.nix
     ./modules/window-manager.nix
     ./modules/bluetooth.nix
     ./modules/packages.nix
     ./modules/nvidia-driver.nix
     ./modules/steam-config.nix
-    ./modules/docker-config.nix
-    ./modules/mongodb-config.nix
+    ./modules/virtualization.nix
+    ./modules/database.nix
   ];
 
   # Linux Kernel version
@@ -27,37 +28,18 @@
     HandleLidSwitch = "suspend";
   };
 
-  # hint electron apps to use wayland:
+  # Hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
+  # Timezone
   time.timeZone = "Asia/Jakarta";
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "";
-      options = "caps:swapescape";
-    };
-  };
 
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.inputMethod = {
-    type = "fcitx5";
-    enable = true;
-    fcitx5 = {
-      addons = with pkgs; [
-        fcitx5-gtk # alternatively, kdePackages.fcitx5-qt
-        qt6Packages.fcitx5-chinese-addons # table input method support
-        fcitx5-nord # a color theme
-      ];
-      waylandFrontend = true;
-    };
-  };
-
+  # Font
   fonts.packages = with pkgs; [
     nerd-fonts._0xproto
   ];
 
+  # Users
   users.users.faiqge = {
     shell = pkgs.zsh;
     isNormalUser = true;

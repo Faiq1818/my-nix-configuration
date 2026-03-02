@@ -1,31 +1,36 @@
 {
-  description = "A simple NixOS flake";
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-      # to have it up-to-date or simply don't specify the nixpkgs input
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:Faiq1818/my-nix-flakes?dir=nixvim";
-    };
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    nixvim.url = "github:Faiq1818/my-nix-flakes?dir=nixvim";
   };
 
-  outputs = {
-    nixpkgs,
-    ...
-  } @ inputs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+  outputs =
+    {
+      nixpkgs-stable,
+      nixpkgs-unstable,
+      ...
+    }@inputs:
+    let
       system = "x86_64-linux";
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./configuration.nix
-      ];
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in
+    {
+      nixosConfigurations.nixos = nixpkgs-stable.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit
+            inputs
+            pkgs-unstable
+            ;
+        };
+        modules = [
+          ./configuration.nix
+        ];
+      };
     };
-  };
 }

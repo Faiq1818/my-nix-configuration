@@ -1,7 +1,5 @@
-{config, ...}: {
-  ##########################
-  # Nvidia driver settings #
-  ##########################
+{ config, ... }:
+{
   hardware.graphics = {
     enable = true;
     enable32Bit = true;

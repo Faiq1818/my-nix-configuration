@@ -68,7 +68,6 @@
     qbittorrent
     gh
     dbeaver-bin
-    rquickshare
     obsidian
     swaynotificationcenter
     chromium

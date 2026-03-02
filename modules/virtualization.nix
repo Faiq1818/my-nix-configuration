@@ -1,12 +1,8 @@
-{...}: {
+{ ... }:
+{
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";
-    # rootless mode
-    # rootless = {
-    #   enable = false;
-    #   setSocketVariable = true;
-    # };
   };
 
   virtualisation.podman = {
