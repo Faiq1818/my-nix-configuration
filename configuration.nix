@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -30,9 +31,12 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   time.timeZone = "Asia/Jakarta";
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  services.xserver = {
+    xkb = {
+      layout = "us";
+      variant = "";
+      options = "caps:swapescape";
+    };
   };
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -42,9 +46,9 @@
     enable = true;
     fcitx5 = {
       addons = with pkgs; [
-        fcitx5-gtk             # alternatively, kdePackages.fcitx5-qt
-        qt6Packages.fcitx5-chinese-addons  # table input method support
-        fcitx5-nord            # a color theme
+        fcitx5-gtk # alternatively, kdePackages.fcitx5-qt
+        qt6Packages.fcitx5-chinese-addons # table input method support
+        fcitx5-nord # a color theme
       ];
       waylandFrontend = true;
     };
@@ -58,10 +62,18 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Faiq Ghozy Erlangga";
-    extraGroups = ["wheel" "networkmanager" "ydotool" "docker"];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "ydotool"
+      "docker"
+    ];
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   system.stateVersion = "25.05";
 }

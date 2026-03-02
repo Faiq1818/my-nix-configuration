@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   environment.systemPackages = with pkgs; [
     # Desktop config
     pavucontrol
@@ -71,6 +72,8 @@
     obsidian
     swaynotificationcenter
     chromium
+    opencode
+    thunderbird
 
     # Inputs from flake
     inputs.zen-browser.packages.${pkgs.system}.default
