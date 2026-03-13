@@ -3,8 +3,8 @@
   services.xserver = {
     xkb = {
       layout = "us";
-      variant = "";
-      options = "caps:swapescape";
+      # variant = "";
+      # options = "caps:swapescape";
     };
   };
 
@@ -20,6 +20,23 @@
         fcitx5-nord # a color theme
       ];
       waylandFrontend = true;
+    };
+  };
+
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        settings = {
+          main = {
+            capslock = "overload(control, esc)";
+            esc = "capslock";
+            leftmeta = "leftalt";
+            leftalt = "leftmeta";
+          };
+        };
+      };
     };
   };
 }

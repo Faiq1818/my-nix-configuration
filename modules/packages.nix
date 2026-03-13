@@ -9,19 +9,18 @@
     ydotool.enable = true;
     zsh.enable = true;
     kdeconnect.enable = true;
+    thunderbird.enable = true;
   };
 
   environment.systemPackages =
     with pkgs;
     [
-      # Desktop config
+      # Desktop package
       pavucontrol
       networkmanagerapplet
       rose-pine-cursor
       xwayland-satellite
       catppuccin-sddm
-
-      # Hyprland config
       hyprpolkitagent
       hyprpaper
       waybar
@@ -82,7 +81,6 @@
       obs-studio
       chromium
       opencode
-      thunderbird
 
       # Inputs from flake
       inputs.zen-browser.packages.${pkgs.system}.default
