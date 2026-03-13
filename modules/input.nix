@@ -30,10 +30,12 @@
         ids = [ "*" ];
         settings = {
           main = {
-            capslock = "overload(control, esc)";
+            capslock = "esc";
             esc = "capslock";
             leftmeta = "leftalt";
             leftalt = "leftmeta";
+            rightalt = "rightcontrol";
+            rightcontrol = "rightalt";
           };
         };
       };
