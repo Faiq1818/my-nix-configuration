@@ -58,13 +58,11 @@
       python313Packages.pipx
       android-tools
       nethogs
-      mangohud
       podman-compose
       podman-desktop
       qbittorrent
       gh
       dbeaver-bin
-      obsidian
       swaynotificationcenter
     ]
     ++ (with pkgs-unstable; [
@@ -81,6 +79,8 @@
       obs-studio
       chromium
       opencode
+      nodejs_24
+      claude-code
 
       # Inputs from flake
       inputs.zen-browser.packages.${pkgs.system}.default

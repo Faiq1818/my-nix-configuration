@@ -14,6 +14,7 @@
     ./modules/steam-config.nix
     ./modules/virtualization.nix
     ./modules/database.nix
+    ./modules/systemd.nix
   ];
 
   # Linux Kernel version
