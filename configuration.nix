@@ -25,6 +25,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
+  };
+
   services.logind.settings.Login = {
     HibernateDelaySec = 0;
     HandleLidSwitch = "suspend";
@@ -51,8 +55,11 @@
       "networkmanager"
       "ydotool"
       "docker"
+      "i2c"
     ];
   };
+
+  hardware.i2c.enable = true;
 
   nix.settings.experimental-features = [
     "nix-command"

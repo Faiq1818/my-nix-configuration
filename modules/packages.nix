@@ -30,6 +30,7 @@
       grim
       kdePackages.dolphin
       kdePackages.gwenview
+      ddcutil
 
       # Application
       vesktop
