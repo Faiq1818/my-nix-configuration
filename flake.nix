@@ -4,6 +4,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixvim.url = "github:Faiq1818/my-nix-flakes?dir=nixvim";
+    nixpkgs-for-hyprland.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
 
   outputs =
@@ -18,6 +19,10 @@
         inherit system;
         config.allowUnfree = true;
       };
+      nixpkgs-for-hyprland = import inputs.nixpkgs-for-hyprland {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations.nixos = nixpkgs-stable.lib.nixosSystem {
@@ -26,6 +31,7 @@
           inherit
             inputs
             pkgs-unstable
+            nixpkgs-for-hyprland
             ;
         };
         modules = [
