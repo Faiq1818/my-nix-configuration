@@ -12,6 +12,14 @@
     thunderbird.enable = true;
   };
 
+  security.polkit.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # android studio licence eula accept
+  nixpkgs.config.android_sdk.accept_license = true;
+
   environment.systemPackages =
     with pkgs;
     [
@@ -33,13 +41,15 @@
       ddcutil
 
       # Application
+      git
+      vscode
+      kdePackages.dolphin
       vesktop
       spotify
       vlc
       fastfetch
       btop
       superfile
-      cava
       tmux
       mangohud
       protonup-ng
@@ -67,32 +77,20 @@
       swaynotificationcenter
     ]
     ++ (with pkgs-unstable; [
-      git
-      vscode
-      kdePackages.dolphin
       firefox
       nvtopPackages.nvidia
       osu-lazer-bin
       zoom-us
       android-studio
       tree
-      spotify-player
       obs-studio
-      chromium
       opencode
       nodejs_24
+      go
       claude-code
 
       # Inputs from flake
       inputs.zen-browser.packages.${pkgs.system}.default
       inputs.nixvim.packages.${pkgs.system}.default
     ]);
-
-  security.polkit.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # android studio licence eula accept
-  nixpkgs.config.android_sdk.accept_license = true;
 }

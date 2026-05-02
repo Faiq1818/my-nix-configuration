@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/networking.nix
     ./modules/services.nix
@@ -18,13 +17,11 @@
   ];
 
   # Linux Kernel version
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
+  boot.kernelPackages = pkgs.linuxPackages_7_0;
   boot.kernelParams = [ "nvidia-modeset.hdmi_deepcolor=0" ];
 
-  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;
   };
@@ -37,10 +34,8 @@
   # Hint electron apps to use wayland:
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Timezone
   time.timeZone = "Asia/Jakarta";
 
-  # Font
   fonts.packages = with pkgs; [
     nerd-fonts._0xproto
   ];
@@ -66,5 +61,5 @@
     "flakes"
   ];
 
-  system.stateVersion = "25.05";
+  # system.stateVersion = "25.05";
 }
