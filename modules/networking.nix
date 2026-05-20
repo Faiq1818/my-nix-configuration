@@ -19,14 +19,10 @@
 
   networking.hosts = {
     "127.0.0.1" = [
-      "facebook.com"
-      "www.facebook.com"
       "instagram.com"
       "www.instagram.com"
       "tiktok.com"
       "www.tiktok.com"
-      "reddit.com"
-      "www.reddit.com"
     ];
   };
 

@@ -79,11 +79,11 @@
     },
     "nixpkgs-for-hyprland": {
       "locked": {
-        "lastModified": 1777578337,
-        "narHash": "sha256-Ad49moKWeXtKBJNy2ebiTQUEgdLyvGmTeykAQ9xM+Z4=",
+        "lastModified": 1778869304,
+        "narHash": "sha256-30sZNZoA1cqF5JNO9fVX+wgiQYjB7HJqqJ4ztCDeBZE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "15f4ee454b1dce334612fa6843b3e05cf546efab",
+        "rev": "d233902339c02a9c334e7e593de68855ad26c4cb",
         "type": "github"
       },
       "original": {
@@ -180,11 +180,11 @@
       },
       "locked": {
         "dir": "nixvim",
-        "lastModified": 1777759165,
-        "narHash": "sha256-Mx+tasP7JwQsSsxzVfBUXn+0JI77lwc7b/lQmjlM0Jk=",
+        "lastModified": 1778606599,
+        "narHash": "sha256-xa/RJLz41b3mXqQSi/d6Eu2Pgv07bmVfjWzgLeiWDxk=",
         "owner": "Faiq1818",
         "repo": "my-nix-flakes",
-        "rev": "4d77d2f2b1d9ad77a28a54c54e1dbac7d1fab2af",
+        "rev": "3870f0061b884a5f22e73f70be169f923b6d5cc1",
         "type": "github"
       },
       "original": {

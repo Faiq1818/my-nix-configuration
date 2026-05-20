@@ -12,6 +12,29 @@
     thunderbird.enable = true;
   };
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      xorg.libX11
+      xorg.libXext
+      xorg.libXrender
+      xorg.libXtst
+      xorg.libXi
+      xorg.libXrandr
+      xorg.libXcursor
+      xorg.libXdamage
+      xorg.libXfixes
+      xorg.libxcb
+
+      libGL
+      mesa
+
+      zlib
+      glib
+      stdenv.cc.cc
+    ];
+  };
+
   security.polkit.enable = true;
 
   # Allow unfree packages
