@@ -1,10 +1,20 @@
 {
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
+
   inputs = {
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
-    nixvim.url = "github:Faiq1818/my-nix-flakes?dir=nixvim";
     nixpkgs-for-hyprland.url = "github:NixOS/nixpkgs/nixos-unstable";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs-for-hyprland";
+    };
   };
 
   outputs =
@@ -36,6 +46,7 @@
         };
         modules = [
           ./configuration.nix
+          ./noctalia.nix
         ];
       };
     };
