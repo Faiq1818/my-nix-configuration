@@ -26,6 +26,10 @@
     "vm.swappiness" = 10;
   };
 
+  zramSwap.enable = true;
+
+  nix.settings.max-jobs = 10;
+
   services.logind.settings.Login = {
     HibernateDelaySec = 0;
     HandleLidSwitch = "suspend";

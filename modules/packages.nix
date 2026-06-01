@@ -58,7 +58,7 @@
 
       # Application
       git
-      vscode
+      vscode.fhs
       vesktop
       spotify
       vlc
