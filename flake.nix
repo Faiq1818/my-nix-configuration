@@ -15,6 +15,12 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs-for-hyprland";
     };
+
+    noctalia-new-nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    noctalia-new = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "noctalia-new-nixpkgs";
+    };
   };
 
   outputs =
@@ -33,6 +39,10 @@
         inherit system;
         config.allowUnfree = true;
       };
+      noctalia-new-nixpkgs = import inputs.nixpkgs-for-hyprland {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations.nixos = nixpkgs-stable.lib.nixosSystem {
@@ -42,6 +52,7 @@
             inputs
             pkgs-unstable
             nixpkgs-for-hyprland
+            noctalia-new-nixpkgs
             ;
         };
         modules = [

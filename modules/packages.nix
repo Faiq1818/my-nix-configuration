@@ -88,6 +88,9 @@
       gh
       dbeaver-bin
       scrcpy
+      gnumake
+      lazydocker
+      dive
     ]
     ++ (with pkgs-unstable; [
       firefox
@@ -97,11 +100,11 @@
       android-studio
       tree
       obs-studio
-      opencode
       nodejs_24
       go
-      claude-code
       koreader
+      uv
+      mise
 
       # Inputs from flake
       inputs.zen-browser.packages.${pkgs.system}.default

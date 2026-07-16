@@ -10,17 +10,23 @@
     8081
     3000
   ];
-  networking.nameservers = [
-    "8.8.8.8"
-    "1.1.1.1"
-    "8.8.4.4"
-    "1.0.0.1"
-  ];
+  networking.networkmanager.settings = {
+    main = {
+      dns = "none";
+      rc-manager = "unmanaged";
+    };
+  };
+  # networking.nameservers = [
+  #   "1.1.1.1"
+  # ];
+  environment.etc."resolv.conf".text = ''
+    nameserver 1.1.1.1
+    nameserver 8.8.8.8
+    options edns0
+  '';
 
   networking.hosts = {
     "127.0.0.1" = [
-      "instagram.com"
-      "www.instagram.com"
       "tiktok.com"
       "www.tiktok.com"
     ];
