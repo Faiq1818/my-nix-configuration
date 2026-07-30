@@ -15,4 +15,6 @@
     # "modesetting"  # example for Intel iGPU; use "amdgpu" here instead if your iGPU is AMD
     "nvidia"
   ];
+
+  hardware.nvidia-container-toolkit.enable = true;
 }

@@ -60,8 +60,8 @@
             l = "right";
             i = "home";
             o = "end";
-            q = "pageup";
-            w = "pagedown";
+            u = "pageup";
+            p = "pagedown";
           };
         };
       };
