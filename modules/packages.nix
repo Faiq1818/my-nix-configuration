@@ -91,6 +91,7 @@
       gnumake
       lazydocker
       dive
+      openssl_4_0
     ]
     ++ (with pkgs-unstable; [
       firefox

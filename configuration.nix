@@ -18,7 +18,7 @@
 
   # Linux Kernel version
   boot.kernelPackages = pkgs.linuxPackages_7_0;
-  boot.kernelParams = [ "nvidia-modeset.hdmi_deepcolor=0" ];
+  boot.kernelParams = [ "nvidia-modeset.hdmi_deepcolor=0" "clearcpuid=umip"];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -58,6 +58,7 @@
       "ydotool"
       "docker"
       "i2c"
+      "libvirtd"
     ];
   };
 
