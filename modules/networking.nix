@@ -29,6 +29,12 @@
     "127.0.0.1" = [
       "tiktok.com"
       "www.tiktok.com"
+      "reddit.com"
+      "www.reddit.com"
+      # "facebook.com"
+      # "www.facebook.com"
+      "instagram.com"
+      "www.instagram.com"
     ];
   };
 

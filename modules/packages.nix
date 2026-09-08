@@ -92,6 +92,7 @@
       lazydocker
       dive
       openssl_4_0
+      mosh
     ]
     ++ (with pkgs-unstable; [
       firefox
@@ -106,6 +107,9 @@
       koreader
       uv
       mise
+      heimdall
+      heimdall-gui
+      lz4
 
       # Inputs from flake
       inputs.zen-browser.packages.${pkgs.system}.default

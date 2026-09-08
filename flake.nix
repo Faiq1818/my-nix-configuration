@@ -1,26 +1,19 @@
 {
-  nixConfig = {
-    extra-substituters = [ "https://noctalia.cachix.org" ];
-    extra-trusted-public-keys = [
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-    ];
-  };
-
   inputs = {
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixpkgs-for-hyprland.url = "github:NixOS/nixpkgs/nixos-unstable";
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs-for-hyprland";
+      url = "github:noctalia-dev/noctalia/cachix";
     };
+  };
 
-    noctalia-new-nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    noctalia-new = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "noctalia-new-nixpkgs";
-    };
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
   };
 
   outputs =
@@ -39,10 +32,6 @@
         inherit system;
         config.allowUnfree = true;
       };
-      noctalia-new-nixpkgs = import inputs.nixpkgs-for-hyprland {
-        inherit system;
-        config.allowUnfree = true;
-      };
     in
     {
       nixosConfigurations.nixos = nixpkgs-stable.lib.nixosSystem {
@@ -52,7 +41,6 @@
             inputs
             pkgs-unstable
             nixpkgs-for-hyprland
-            noctalia-new-nixpkgs
             ;
         };
         modules = [
