@@ -63,7 +63,7 @@
       spotify
       vlc
       fastfetch
-      btop
+      btop-cuda
       superfile
       tmux
       mangohud
@@ -96,6 +96,7 @@
     ]
     ++ (with pkgs-unstable; [
       firefox
+      google-chrome
       nvtopPackages.nvidia
       osu-lazer-bin
       zoom-us
