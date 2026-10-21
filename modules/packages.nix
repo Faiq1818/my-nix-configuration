@@ -39,6 +39,10 @@
     kdeconnect.enable = true;
     thunderbird.enable = true;
   };
+
+  services.cloudflare-warp.enable = true;
+  programs.wireshark.enable = true;
+
   environment.systemPackages =
     with pkgs;
     [
@@ -93,9 +97,12 @@
       dive
       openssl_4_0
       mosh
+      kdePackages.okular
+      wireshark
     ]
     ++ (with pkgs-unstable; [
       firefox
+      cloudflare-warp
       google-chrome
       nvtopPackages.nvidia
       osu-lazer-bin

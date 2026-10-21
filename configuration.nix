@@ -59,6 +59,7 @@
       "docker"
       "i2c"
       "libvirtd"
+      "wireshark"
     ];
   };
 
