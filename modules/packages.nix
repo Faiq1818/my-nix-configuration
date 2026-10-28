@@ -81,7 +81,6 @@
       yazi
       foot
       insomnia
-      brave
       kdePackages.kdenlive
       python313Packages.pipx
       android-tools
@@ -99,13 +98,13 @@
       mosh
       kdePackages.okular
       wireshark
+      easyeffects
     ]
     ++ (with pkgs-unstable; [
       firefox
       cloudflare-warp
       google-chrome
       nvtopPackages.nvidia
-      osu-lazer-bin
       zoom-us
       android-studio
       tree
@@ -115,11 +114,13 @@
       koreader
       uv
       mise
-      heimdall
-      heimdall-gui
       lz4
 
       # Inputs from flake
       inputs.zen-browser.packages.${pkgs.system}.default
     ]);
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
 }
