@@ -43,6 +43,12 @@
   services.cloudflare-warp.enable = true;
   programs.wireshark.enable = true;
 
+  services.udev.packages = with pkgs; [
+    libmtp
+  ];
+
+  services.udisks2.enable = true;
+
   environment.systemPackages =
     with pkgs;
     [
@@ -55,7 +61,13 @@
       wl-clipboard
       slurp
       grim
+      libmtp
       kdePackages.dolphin
+      kdePackages.kio # needed since 25.11
+      kdePackages.kio-fuse # to mount remote filesystems via FUSE
+      kdePackages.kio-extras # extra protocols support (sftp, fish and more)
+      kdePackages.kservice
+      kdePackages.solid
       kdePackages.gwenview
       ddcutil
       quickshell
@@ -99,10 +111,11 @@
       kdePackages.okular
       wireshark
       easyeffects
+      cloudflare-warp
+      lsd
     ]
     ++ (with pkgs-unstable; [
       firefox
-      cloudflare-warp
       google-chrome
       nvtopPackages.nvidia
       zoom-us
@@ -115,9 +128,7 @@
       uv
       mise
       lz4
-
-      # Inputs from flake
-      inputs.zen-browser.packages.${pkgs.system}.default
+      antigravity-hub
     ]);
 
   nixpkgs.config.permittedInsecurePackages = [

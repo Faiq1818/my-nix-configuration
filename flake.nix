@@ -2,7 +2,6 @@
   inputs = {
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
     nixpkgs-for-hyprland.url = "github:NixOS/nixpkgs/nixos-unstable";
     noctalia = {
       url = "github:noctalia-dev/noctalia/cachix";
