@@ -113,9 +113,11 @@
       easyeffects
       cloudflare-warp
       lsd
+      rustup
+      rclone
+      firefox
     ]
     ++ (with pkgs-unstable; [
-      firefox
       google-chrome
       nvtopPackages.nvidia
       zoom-us

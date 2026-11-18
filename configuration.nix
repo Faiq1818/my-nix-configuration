@@ -43,9 +43,25 @@
 
   time.timeZone = "Asia/Jakarta";
 
-  fonts.packages = with pkgs; [
-    nerd-fonts._0xproto
-  ];
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts._0xproto
+      inter
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-color-emoji
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = [ "Noto Serif" "Noto Serif CJK SC" "DejaVu Serif" ];
+        sansSerif = [ "Noto Sans" "Noto Sans CJK SC" "DejaVu Sans" ];
+        monospace = [ "0xProto Nerd Font Mono" "DejaVu Sans Mono" ];
+        emoji = [ "Noto Color Emoji" ];
+      };
+    };
+  };
 
   # Users
   users.users.faiqge = {
