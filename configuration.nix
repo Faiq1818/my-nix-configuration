@@ -76,6 +76,7 @@
       "i2c"
       "libvirtd"
       "wireshark"
+      "dialout"
     ];
   };
 

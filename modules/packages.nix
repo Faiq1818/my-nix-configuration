@@ -7,6 +7,9 @@
 {
   security.polkit.enable = true;
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+    inputs.antigravity.overlays.antigravity-cli
+  ];
 
   programs.nix-ld = {
     enable = true;
@@ -116,6 +119,7 @@
       rustup
       rclone
       firefox
+      antigravity-cli
     ]
     ++ (with pkgs-unstable; [
       google-chrome
